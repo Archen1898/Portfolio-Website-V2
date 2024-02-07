@@ -1,0 +1,43 @@
+body{
+    background-color: rgb(32, 32, 32);
+    margin: 0px;
+    
+
+    --primary-color: black;
+    --secondary-color: gold;
+}
+a{
+
+}
+#nav{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    padding: 20px;
+}
+#nav a{
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 3em;
+    padding: 20px;
+    margin-bottom: 100px;
+}
+
+#name{
+    margin-right: auto;
+}
+
+#content{
+    display: flex;
+    flex-direction: column;
+}
+#main{
+    display: flex;
+    width: min(70%, 1000px);
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 5px solid var(--secondary-color);
+}
