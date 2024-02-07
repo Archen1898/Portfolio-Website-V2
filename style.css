@@ -6,8 +6,8 @@
 body{
     background-color: rgb(32, 32, 32);
     margin: 0px;
-    width: 100vw;
-    min-height: 100vh;
+    width: 100%;
+    min-height: 100%;
     font-family: 'Monaco', monospace;
     --backgroundColor : rgb(32, 32, 32);
     --primary-color: black;
@@ -24,12 +24,17 @@ a{
     padding: 20px;
 }
 #nav a{
-    --webkit-text-stroke: 0.5px var(--backgroundColor);
     color: white;
     text-decoration: none;
     font-size: 1rem;
-    padding: 20px;
+    padding: 5px;
     margin-bottom: 100px;
+
+    transition: transform 0.3s ease, color 0.3s;
+}
+#nav a:hover{
+    color: var(--secondary-color);
+    transform: translate(0px, -10px);
 }
 
 #name{
@@ -45,13 +50,11 @@ a{
     overflow: hidden;
     
 }
-/*
+
 #main{
     font-size: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width: min(70%, 1000px);
     height: 100%;
     margin-left: auto;
@@ -60,8 +63,29 @@ a{
     color: var(--secondary-color);
     border: 5px solid var(--secondary-color);
     padding: min(5%, 50px);
-}
 
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-delay: 0s;
+    animation-direction: normal;
+    
+}
+#main #underline{
+    width: min(220px);
+    height: 5px;
+    background: var(--secondary-color);
+    border-radius: 2px;
+    animation: fadeIn 2s ease-out 1.3s 1 both;
+
+}
+#main p{
+    animation: fadeIn 2s ease-out 1.3s 1 both;
+}
+#main #title{
+    animation: fadeIn 2s ease-out 1s 1 normal;
+}
+/*
 #opening{
     display:flex;
     flex-direction: row;
@@ -83,39 +107,54 @@ a{
 }
 */
 
-#main{
-    display: flex;
-    position: relative;
-}
 #bubbles{
 display:flex;
 position:relative;
 z-index: -100;
 }
 #bubbles span{
+    display: flex;
+    flex-shrink: 0;
+    flex-grow: 0;
     position: relative;
-    width: 30px;
-    height: 30px;
+    width: 10px;
+    height: 10px;
     background-color: var(--secondary-color);
     margin: 0 4px;
     border-radius: 50%;
-    box-shadow: 0 0 0 10px var(--secondary-color),
-    0 0 50px var(--secondary-color),
+    box-shadow: 0 0 5px 10px var(--tertiary-color),
+    0px 0px 10px 10px var(--secondary-color),
     0 0 100px var(--secondary-color);
     animation: animate 15s linear infinite;
-    animation-duration: calc(200s/var(--i));
+    animation-duration: calc(150s/var(--i));
 }
+
 #bubbles span:nth-child(even){
     background-color: var(--tertiary-color);
-    box-shadow: 0 0 0 10px var(--tertiary-color),
-    0 0 50px var(--tertiary-color),
+    box-shadow: 0 0 5px 10px var(--secondary-color),
+    0px 0px 10px 10px var(--tertiary-color),
     0 0 100px var(--tertiary-color);
 }
+
 @keyframes animate{
     0%{
-        transform: translateY(100vh) scale(1);
+        transform: translateY(110vh) scale(1);
     }
     100%{
-        transform: translateY(-15vh) scale(0);
+        transform: translateY(-10vh) scale(0);
+    }
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+        transform: translateY(80vh);
+    }
+    60%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0vh);
     }
 }
