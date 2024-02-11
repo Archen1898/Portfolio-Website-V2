@@ -1,4 +1,6 @@
 
+
+
 *{
     box-sizing: border-box;
     margin: 0px;
@@ -105,7 +107,7 @@ body{
         display: grid;
         position: relative;
         grid-template-columns: 1fr 5px 1fr;
-        grid-template-rows: 200px 270px;
+        grid-template-rows: 200px 270px 300px;
     
         .timeline-component{
             margin: 0px 20px 20px 20px;
@@ -178,6 +180,17 @@ body{
             animation: exposure-text 1s ease-out forwards;
         }
 
+        /*Fourth Row - webdev*/
+        #webdev:hover .timeline-body{
+            animation: expand-webdev 1s ease-out forwards;
+        }
+        #webdev-span:before{
+            content:"Web Dev";
+        }
+        #webdev:hover #webdev-span:before{
+            content:"";
+            animation: webdev-text 1s ease-out forwards;
+        }
         
         
         
@@ -365,6 +378,256 @@ z-index: -100;
         height: 100px;
     }
     100%{
-        height: 250px;
+        height: 280px;
+    }
+}
+
+
+@keyframes exposure-text{
+    0%{
+        opacity: 1;
+        content:"Exposure";
+    }
+    50%{
+        opacity: 0;
+        content:"";
+        font-size: 0.75rem;
+    }
+    
+    
+    100%{
+        opacity: 1;
+        font-size: 0.75rem;
+        content:"During the first two years of my time at FIU, I discovered my passion for software development. I took classes that gave me the opportunity to learn Java, C, and C++, and Python.";
+    }
+}
+
+
+@keyframes webdev-exposure{
+    0%{
+        height: 100px;
+    }
+    100%{
+        height: 280px;
+    }
+}
+
+
+@keyframes webdev-text{
+    0%{
+        opacity: 1;
+        content:"Exposure";
+    }
+    50%{
+        opacity: 0;
+        content:"";
+        font-size: 0.75rem;
+    }
+    
+    
+    100%{
+        opacity: 1;
+        font-size: 0.75rem;
+        content:"During the first two years of my time at FIU, I discovered my passion for software development. I took classes that gave me the opportunity to learn Java, C, and C++, and Python.";
+    }
+}
+
+
+
+
+
+/** Media Queries **/
+
+@media screen and (max-width: 600px){
+    .section{
+        font-size: 0.75rem;
+    }
+
+    .section #timeline{
+        grid-template-columns: 5px 1fr;
+        grid-template-rows: 20px 230px 20px 350px 20px 400px;
+
+        /*First Row*/
+        #bar-1{
+            grid-row: 1/3;
+            grid-column: 1/2;
+        }
+        #jan2020{
+            grid-row: 1/2;
+            grid-column: 2/3;
+            text-align: left;
+        }
+        .timeline-date .timeline-date-right{
+            text-align: left;
+        }
+        #java{
+            grid-row: 2/3;
+            grid-column: 2/3;
+        }
+        #java:hover .timeline-body{
+            animation: expand-java-mobile 1s ease-out forwards;
+        }
+
+        #java-span:before{
+            content:"Java"
+        }
+        #java:hover #java-span:before{
+            content:"";
+            animation: java-text-mobile 1s ease-out forwards;
+        }
+        /*Second Row*/
+        #bar-2{
+            grid-row: 3/5;
+            grid-column: 1/2;
+        }
+        #aug2020{
+            grid-row: 3/4;
+        }
+        #fiu{
+            grid-row: 4/5;
+            grid-column: 2/3;
+        }
+        #fiu:hover .timeline-body{
+            animation: expand-fiu-mobile 1s ease-out forwards;
+        }
+        #fiu-span:before{
+            content:"FIU"
+        }
+        #fiu:hover #fiu-span:before{
+            content:"";
+            animation: fiu-text-mobile 1s ease-out forwards;
+        }
+        /*Third Row*/
+        #bar-3{
+            grid-row: 5/7;
+            grid-column: 1/2;
+        }
+        #_2021{
+            grid-row: 5/6;
+        }
+        #exposure{
+            grid-row: 6/7;
+            grid-column: 2/3;
+        }
+        #exposure:hover .timeline-body{
+            animation: expand-exposure-mobile 1s ease-out forwards;
+        }
+        #exposure-span:before{
+            content:"Exposure"
+        }
+        #exposure:hover #exposure-span:before{
+            content:"";
+            animation: exposure-text-mobile 1s ease-out forwards;
+        }
+
+    }
+
+
+    /*Animations for Timeline within media query*/
+
+    @keyframes expand-java-mobile{
+        0%{
+            height: 100px;
+        }
+        100%{
+            height: 210px;
+        }
+    }
+    
+    @keyframes java-text-mobile{
+        0%{
+            opacity: 1;
+            content:"Java/C++";
+        }
+        50%{
+            opacity: 0;
+            content:"";
+            font-size: 0.75rem;
+        }
+        
+        
+        100%{
+            opacity: 1;
+            font-size: 0.75rem;
+            content:"Towards the end of my Associate's degree, I learned both Java and C++ at the University of the Bahamas.";
+        }
+    }
+
+
+@keyframes fiu-text-mobile{
+    0%{
+        opacity: 1;
+        content:"FIU";
+    }
+    50%{
+        opacity: 0;
+        content:"";
+        font-size: 0.6rem;
+    }
+    
+    
+    100%{
+        opacity: 1;
+        font-size: 0.75rem;
+        content:"In August of 2020, I enrolled at Florida International University as a transfer student aiming to graduate with a Bachelor's degree in Computer Engineering.";
+    }
+}
+
+@keyframes expand-fiu-mobile{
+    0%{
+        height: 100px;
+    }
+    100%{
+        height: 330px;
+    }
+}
+
+
+@keyframes exposure-text-mobile{
+    0%{
+        opacity: 1;
+        content:"Exposure";
+    }
+    50%{
+        opacity: 0;
+        content:"";
+        font-size: 0.75rem;
+    }
+    
+    
+    100%{
+        opacity: 1;
+        font-size: 0.75rem;
+        content:"During the first two years of my time at FIU, I discovered my passion for software development. I took classes that gave me the opportunity to learn Java, C, and C++, and Python.";
+    }
+}
+
+@keyframes expand-exposure-mobile{
+    0%{
+        height: 100px;
+    }
+    100%{
+        height: 380px;
+    }
+}
+
+
+    @keyframes exposure-text{
+        0%{
+        opacity: 1;
+        content:"Exposure";
+        }
+        50%{
+        opacity: 0;
+        content:"";
+        font-size: 0.75rem;
+    }
+    
+    
+        100%{
+            opacity: 1;
+            font-size: 0.75rem;
+            content:"During the first two years of my time at FIU, I discovered my passion for software development. I took classes that gave me the opportunity to learn Java, C, and C++, and Python.";
+        }
     }
 }
